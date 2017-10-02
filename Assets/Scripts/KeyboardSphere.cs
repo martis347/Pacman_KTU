@@ -4,14 +4,22 @@ namespace Assets.Scripts
 {
     public class KeyboardSphere : MonoBehaviour
     {
-        public float speed;
-        void Start()
-        {
-        }
+        public float Speed = 30F;
+        public float Gravity = 20.0F;
 
-        void FixedUpdate()
+        private Vector3 moveDirection = Vector3.zero;
+        void Update()
         {
-            transform.Translate(Input.GetAxis("Horizontal") * Time.fixedDeltaTime * speed, 0f, Input.GetAxis("Vertical") * Time.fixedDeltaTime * speed);
+            CharacterController controller = GetComponent<CharacterController>();
+            if (controller.isGrounded)
+            {
+                moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                moveDirection = transform.TransformDirection(moveDirection);
+                moveDirection *= Speed;
+
+            }
+            moveDirection.y -= Gravity * Time.deltaTime;
+            controller.Move(moveDirection * Time.deltaTime);
         }
     }
 }

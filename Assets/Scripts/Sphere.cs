@@ -8,14 +8,12 @@ namespace Assets.Scripts
 
         void Start ()
         {
-		    Debug.Log($"Starting health on {name} is: {Health}");
         }
 	
         void Update ()
         {
             if (Health > 0 && EnemySphere.Health <= 0)
             {
-                Debug.Log($"{name}: I'm Winner!");
             }
             else if (Health > 0)
             {
@@ -24,7 +22,6 @@ namespace Assets.Scripts
             }
             else
             {
-                Debug.Log($"{name}: I'm Dead!");
                 Destroy(gameObject);
             }
         }
