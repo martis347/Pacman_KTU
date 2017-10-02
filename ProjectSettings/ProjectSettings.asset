@@ -589,7 +589,7 @@ PlayerSettings:
   cloudServicesEnabled:
     UNet: 1
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: 3948be24-9e7c-465e-9227-786652db0323
   projectName: Pacman KTU Project
   organizationId: martis347

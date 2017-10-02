@@ -4,20 +4,14 @@ namespace Assets.Scripts
 {
     public class KeyboardSphere : MonoBehaviour
     {
-        private Rigidbody rb;
+        public float speed;
         void Start()
         {
-            rb = GetComponent<Rigidbody>();
         }
 
         void FixedUpdate()
         {
-            float moveHorizontal = Input.GetAxis("Horizontal");
-            float moveVertical = Input.GetAxis("Vertical");
-
-            Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
-            rb.AddForce(movement * 1);
+            transform.Translate(Input.GetAxis("Horizontal") * Time.fixedDeltaTime * speed, 0f, Input.GetAxis("Vertical") * Time.fixedDeltaTime * speed);
         }
     }
 }
