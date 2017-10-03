@@ -27,7 +27,6 @@ namespace Assets.Scripts.Builder
             renderer.material = Resources.Load<Material>("Yellow");
             gameObject.name = "Pacman!";
 
-
             return gameObject;
         }
 
