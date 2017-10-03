@@ -1,16 +1,17 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Components;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
     public class FollowingCamera : MonoBehaviour
     {
-        public KeyboardSphere Player;       //Public variable to store a reference to the player game object
-        private Vector3 offset;         //Private variable to store the offset distance between the player and camera
+        public CharacterComponent Player;
+        private Vector3 offset;
 
         void Start()
         {
-            var rb = GetComponent<Rigidbody>();
-            offset = transform.position - Player.transform.position;
+            offset = new Vector3(0, 60, 0);
+            transform.eulerAngles = new Vector3(90, 0, 0);
         }
 
         void Update()
