@@ -5,7 +5,7 @@ namespace Assets.Scripts.Components
 {
     public class PacmanComponent: CharacterComponent
     {
-        private ISpecialPacmanAbility ability = new PacmanJumpAbility();
+        private ISpecialPacmanAbility ability;
 
         private float Gravity = 100f;
         private Vector3 moveDirection = Vector3.zero;
@@ -27,25 +27,29 @@ namespace Assets.Scripts.Components
             }
             moveDirection.y -= Gravity * Time.deltaTime;
             controller.Move(moveDirection * Time.deltaTime);
+            HandleSpecialAbility(controller);
 
+        }
+
+        private void HandleSpecialAbility(CharacterController controller)
+        {
             if (Input.GetKeyDown("1"))
             {
                 ability = new PacmanRunAbility();
-            } 
+            }
             else if (Input.GetKeyDown("2"))
             {
                 ability = new PacmanJumpAbility();
             }
-            else if(Input.GetKeyDown("3"))
+            else if (Input.GetKeyDown("3"))
             {
                 ability = new PacmanTeleportAbility();
             }
 
-            if (Input.GetKeyDown("space"))
+            if (Input.GetKeyDown("space") && ability != null)
             {
                 ability.DoSpecialAbility(controller, gameObject);
             }
-
         }
     }
 }
