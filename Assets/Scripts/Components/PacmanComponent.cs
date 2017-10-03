@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Patterns.Strategy;
+﻿using Assets.Scripts.Patterns.Singleton;
+using Assets.Scripts.Patterns.Strategy;
 using UnityEngine;
 
 namespace Assets.Scripts.Components
@@ -29,6 +30,11 @@ namespace Assets.Scripts.Components
             controller.Move(moveDirection * Time.deltaTime);
             HandleSpecialAbility(controller);
 
+            if (transform.position.y < 0)
+            {
+                ScoreboardSingleton.Scoreboard.AddDeath();
+                transform.position = Position;
+            }
         }
 
         private void HandleSpecialAbility(CharacterController controller)
