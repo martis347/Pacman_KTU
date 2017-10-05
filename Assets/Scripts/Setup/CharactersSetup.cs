@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Assets.Scripts.Components;
-using Assets.Scripts.Factory;
+using Assets.Scripts.Patterns.Factory;
 using UnityEngine;
 using Zenject;
 
@@ -13,7 +13,7 @@ namespace Assets.Scripts.Setup
 
         public void Start()
         {
-            var ghosts = new List<UnityEngine.GameObject>();
+            var ghosts = new List<GameObject>();
             var pacman = buildersFactory.GetBuilder(BuilderType.Pacman).Build();
 
             var ghostBuilder = buildersFactory.GetBuilder(BuilderType.Ghost);
@@ -22,7 +22,7 @@ namespace Assets.Scripts.Setup
                 ghosts.Add(ghostBuilder.Build());
             }
 
-            UnityEngine.GameObject
+            GameObject
                 .Find("PacmanCamera")
                 .GetComponent<FollowingCamera>()
                 .Player = pacman.GetComponent<PacmanComponent>();

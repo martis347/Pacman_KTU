@@ -1,27 +1,25 @@
-﻿using Assets.Scripts.Builder.CharacterParts;
-using Assets.Scripts.Components;
+﻿using Assets.Scripts.Components;
+using Assets.Scripts.Patterns.Builder;
+using Assets.Scripts.Patterns.Builder.CharacterParts;
 using UnityEngine;
 
 namespace Assets.Scripts.Builder
 {
     public class PacmanBuilder: ICharacterBuilder
     {
-        private readonly UnityEngine.GameObject gameObject;
+        private readonly GameObject gameObject;
 
         public PacmanBuilder()
         {
-            gameObject = UnityEngine.GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            gameObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         }
 
-        public UnityEngine.GameObject Build()
+        public GameObject Build()
         {
             gameObject.AddComponent<PacmanComponent>().InjectAttributes(AssemblePacmanComponent());
             gameObject.AddComponent<CharacterController>();
-            gameObject.AddComponent<MeshRenderer>();
             gameObject.AddComponent<Animation>();
-            gameObject.AddComponent<MeshFilter>();
             gameObject.AddComponent<MeshCollider>();
-            gameObject.AddComponent<Renderer>();
 
             var renderer = gameObject.GetComponent<Renderer>();
             renderer.material = Resources.Load<Material>("Yellow");

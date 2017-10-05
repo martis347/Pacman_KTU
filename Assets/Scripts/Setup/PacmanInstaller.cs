@@ -1,4 +1,5 @@
-using Assets.Scripts.Factory;
+using Assets.Scripts.Patterns.Decorator;
+using Assets.Scripts.Patterns.Factory;
 using Zenject;
 
 namespace Assets.Scripts.Setup
@@ -9,6 +10,10 @@ namespace Assets.Scripts.Setup
         {
             Container.Bind<CharacterBuilderFactory>()
                 .ToSelf()
+                .AsSingle();
+
+            Container.Bind<EdibleElementCreator>()
+                .To<EdibleDotCreator>()
                 .AsSingle();
         }
     }

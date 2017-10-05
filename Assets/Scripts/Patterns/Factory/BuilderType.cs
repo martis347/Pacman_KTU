@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Factory
+﻿namespace Assets.Scripts.Patterns.Factory
 {
     public enum BuilderType
     {

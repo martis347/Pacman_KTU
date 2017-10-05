@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Builder.CharacterParts
+namespace Assets.Scripts.Patterns.Builder.CharacterParts
 {
     public class SmallBody: ICharacterBody
     {

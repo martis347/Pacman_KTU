@@ -1,7 +1,8 @@
 ﻿using System;
 using Assets.Scripts.Builder;
+using Assets.Scripts.Patterns.Builder;
 
-namespace Assets.Scripts.Factory
+namespace Assets.Scripts.Patterns.Factory
 {
     public class CharacterBuilderFactory
     {

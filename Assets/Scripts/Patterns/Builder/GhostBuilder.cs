@@ -1,16 +1,17 @@
-﻿using Assets.Scripts.Builder.CharacterParts;
+﻿using Assets.Scripts.Builder;
 using Assets.Scripts.Components;
+using Assets.Scripts.Patterns.Builder.CharacterParts;
 using UnityEngine;
 
-namespace Assets.Scripts.Builder
+namespace Assets.Scripts.Patterns.Builder
 {
     public class GhostBuilder: ICharacterBuilder
     {
-        private readonly UnityEngine.GameObject gameObject;
+        private readonly GameObject gameObject;
 
         public GhostBuilder()
         {
-            gameObject = UnityEngine.GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            gameObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         }
 
         public UnityEngine.GameObject Build()

@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Builder
+﻿namespace Assets.Scripts.Patterns.Builder
 {
     public interface ICharacterBuilder
     {

@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Builder;
-using Assets.Scripts.Builder.CharacterParts;
+using Assets.Scripts.Patterns.Builder;
+using Assets.Scripts.Patterns.Builder.CharacterParts;
 using UnityEngine;
 
 namespace Assets.Scripts.Components
