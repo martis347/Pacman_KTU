@@ -38,11 +38,11 @@
             }
         }
 
-        public void AddPoint()
+        public void AddPoints(int points)
         {
             lock (Padlock)
             {
-                scoreboard.PointsScored += 1;
+                scoreboard.PointsScored += points;
             }
         }
     }

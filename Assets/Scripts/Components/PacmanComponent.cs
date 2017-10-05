@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Patterns.Singleton;
+﻿using System;
+using Assets.Scripts.Patterns.Singleton;
 using Assets.Scripts.Patterns.Strategy;
 using UnityEngine;
 

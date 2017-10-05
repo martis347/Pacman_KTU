@@ -16,6 +16,10 @@ namespace Assets.Scripts.Patterns.Decorator
             edibleDotComponent.Points = 5;
 
             gameObject.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
+            var renderer = gameObject.GetComponent<Renderer>();
+            renderer.material = Resources.Load<Material>("Red");
+
+            gameObject.name = "Fruit";
 
             return gameObject;
         }
