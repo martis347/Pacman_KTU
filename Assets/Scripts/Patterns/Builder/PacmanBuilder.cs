@@ -1,9 +1,8 @@
 ﻿using Assets.Scripts.Components;
-using Assets.Scripts.Patterns.Builder;
 using Assets.Scripts.Patterns.Builder.CharacterParts;
 using UnityEngine;
 
-namespace Assets.Scripts.Builder
+namespace Assets.Scripts.Patterns.Builder
 {
     public class PacmanBuilder: ICharacterBuilder
     {

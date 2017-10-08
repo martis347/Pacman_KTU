@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Builder;
-using Assets.Scripts.Patterns.Builder;
+﻿using Assets.Scripts.Patterns.Builder;
 using Assets.Scripts.Patterns.Builder.CharacterParts;
 using UnityEngine;
 

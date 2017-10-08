@@ -14,7 +14,9 @@ namespace Assets.Scripts.Setup
         public void Start()
         {
             var ghosts = new List<GameObject>();
-            var pacman = buildersFactory.GetBuilder(BuilderType.Pacman).Build();
+            var pacman = buildersFactory
+                .GetBuilder(BuilderType.Pacman)
+                .Build();
 
             var ghostBuilder = buildersFactory.GetBuilder(BuilderType.Ghost);
             for (var i = 0; i < 5; i++)

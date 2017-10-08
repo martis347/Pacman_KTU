@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Builder;
-using Assets.Scripts.Components;
+﻿using Assets.Scripts.Components;
 using Assets.Scripts.Patterns.Builder.CharacterParts;
 using UnityEngine;
 
@@ -14,7 +13,7 @@ namespace Assets.Scripts.Patterns.Builder
             gameObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         }
 
-        public UnityEngine.GameObject Build()
+        public GameObject Build()
         {
             gameObject.AddComponent<GhostComponent>().InjectAttributes(AssembleGhostComponent());
 

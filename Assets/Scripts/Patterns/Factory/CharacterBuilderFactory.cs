@@ -1,5 +1,4 @@
 ﻿using System;
-using Assets.Scripts.Builder;
 using Assets.Scripts.Patterns.Builder;
 
 namespace Assets.Scripts.Patterns.Factory
