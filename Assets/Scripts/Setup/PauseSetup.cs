@@ -8,13 +8,13 @@ namespace Assets.Scripts.Setup
 {
     public class PauseSetup : MonoBehaviour
     {
-        PauseCommand pauseCommand;
-        UnPauseCommand unPauseCommand;
+        PauseCommand PauseCommand;
+        UnPauseCommand UnPauseCommand;
 
         PauseSetup()
         {
-            this.pauseCommand = new PauseCommand();
-            this.unPauseCommand = new UnPauseCommand();
+            this.PauseCommand = new PauseCommand();
+            this.UnPauseCommand = new UnPauseCommand();
         }
 
         public void Start()
@@ -27,11 +27,11 @@ namespace Assets.Scripts.Setup
             {
                 if(Time.timeScale == 1)
                 {
-                    this.pauseCommand.Execute();
+                    this.PauseCommand.Execute();
                 }
                 else if (Time.timeScale == 0)
                 {
-                    this.unPauseCommand.Execute();
+                    this.UnPauseCommand.Execute();
                 }
             }
 

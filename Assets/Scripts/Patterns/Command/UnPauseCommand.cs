@@ -7,16 +7,16 @@ namespace Assets.Scripts.Patterns.Command
 {
     class UnPauseCommand: MenuCommand
     {
-        Pause pause;
+        Pause Pause;
 
         public UnPauseCommand()
         {
-            this.pause = new Pause();
+            Pause = new Pause();
         }
 
         public void Execute()
         {
-            this.pause.StopPause();
+            Pause.StopPause();
         }
     }
 }
