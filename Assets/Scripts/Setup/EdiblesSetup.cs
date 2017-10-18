@@ -15,7 +15,7 @@ namespace Assets.Scripts.Setup
         public void Start()
         {
             EdibleElementCreator fruitCreator = new FruitCreatorDecorator(dotCreator);
-            var rand = new System.Random();
+            var rand = new Random();
             foreach (var coordinates in GenerateCoordinatesForEdibles())
             {
                 if (rand.Next(1, 10) == 5)
