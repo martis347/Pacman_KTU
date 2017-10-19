@@ -6,17 +6,17 @@ namespace Assets.Scripts.Patterns.Builder
 {
     public class GhostBuilder: ICharacterBuilder
     {
-        private readonly GameObject gameObject;
-
-        public GhostBuilder()
-        {
-            gameObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        }
+        private GameObject gameObject;
 
         public GameObject Build()
         {
-            gameObject.AddComponent<GhostComponent>().InjectAttributes(AssembleGhostComponent());
+            gameObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 
+            gameObject.AddComponent<GhostComponent>().InjectAttributes(AssembleGhostComponent());
+            gameObject.AddComponent<MeshCollider>();
+            gameObject.AddComponent<CharacterController>();
+
+            gameObject.name = "Ghost";
             return gameObject;
         }
 
@@ -28,7 +28,7 @@ namespace Assets.Scripts.Patterns.Builder
                 Body = new SmallBody(),
                 Mouth = new CharacterMouth("Boo, I'm a ghost!")
             };
-            ghost.Position = new Vector3(25f, ghost.Body.Height / 2f, 35f);
+            ghost.Position = new Vector3(50f, ghost.Body.Height / 2f, 50);
 
             return ghost;
         }

@@ -21,7 +21,6 @@ namespace Assets.Scripts.Setup
             var toggleEvent = new Toggle.ToggleEvent();
             gameObject.GetComponent<Toggle>().onValueChanged = toggleEvent;
             theme.BridgePainter = lightPainter;
-
             toggleEvent.AddListener(Toggle_Changed);
         }
 
