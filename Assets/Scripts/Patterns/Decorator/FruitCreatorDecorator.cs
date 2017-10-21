@@ -20,6 +20,7 @@ namespace Assets.Scripts.Patterns.Decorator
             renderer.material = Resources.Load<Material>("Red");
 
             gameObject.name = "Fruit";
+            edibleDotComponent.tag = "Edible";
 
             return gameObject;
         }

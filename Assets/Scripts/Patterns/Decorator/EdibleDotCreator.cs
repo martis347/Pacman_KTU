@@ -19,6 +19,7 @@ namespace Assets.Scripts.Patterns.Decorator
             edibleDotGameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
 
             edibleDotGameObject.name = "Dot";
+            edibleDotComponent.tag = "Edible";
 
             return edibleDotGameObject;
         }
