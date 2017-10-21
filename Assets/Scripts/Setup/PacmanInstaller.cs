@@ -1,7 +1,9 @@
 using Assets.Scripts.Patterns.Adapter;
 using Assets.Scripts.Patterns.Bridge;
+using Assets.Scripts.Patterns.ChainOfResponsibility;
 using Assets.Scripts.Patterns.Decorator;
 using Assets.Scripts.Patterns.Factory;
+using Assets.Scripts.Patterns.Proxy;
 using Assets.Scripts.Patterns.Singleton;
 using Zenject;
 
@@ -37,6 +39,25 @@ namespace Assets.Scripts.Setup
                 .ToSelf()
                 .AsSingle()
                 .WithArguments(ScoreboardSingleton.Scoreboard);
+
+            Container.Bind<IGameLogger>()
+                .To<ProxyLogger>()
+                .AsSingle();
+
+            Container.Bind<MusicHandler>()
+                .WithId("Light")
+                .To<LightMusicHandler>()
+                .AsSingle();
+
+            Container.Bind<MusicHandler>()
+                .WithId("Fast")
+                .To<FastMusicHandler>()
+                .AsSingle();
+
+            Container.Bind<MusicHandler>()
+                .WithId("Intense")
+                .To<IntenseMusicHandler>()
+                .AsSingle();
         }
     }
 }

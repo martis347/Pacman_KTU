@@ -16,9 +16,9 @@ namespace Assets.Scripts.Patterns.Adapter
             scoreboard.AddPoints(5);
         }
 
-        public override void AddTenDotsCollected()
+        public override void AddFortyDotsCollected()
         {
-            scoreboard.AddPoints(10);
+            scoreboard.AddPoints(40);
         }
 
         public override void FakeADeath()
