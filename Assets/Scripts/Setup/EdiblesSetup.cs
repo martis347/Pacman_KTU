@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Patterns.Decorator;
+using Assets.Scripts.Patterns.Proxy;
 using UnityEngine;
 using Zenject;
 using Random = System.Random;
@@ -12,6 +13,8 @@ namespace Assets.Scripts.Setup
     {
         [Inject]
         private EdibleElementCreator dotCreator;
+        [Inject]
+        private IGameLogger logz;
 
         private Iterator iterator;
 
