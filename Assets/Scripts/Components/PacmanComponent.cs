@@ -1,7 +1,9 @@
 ﻿using System;
+using Assets.Scripts.Patterns.Proxy;
 using Assets.Scripts.Patterns.Singleton;
 using Assets.Scripts.Patterns.Strategy;
 using UnityEngine;
+using Zenject;
 
 namespace Assets.Scripts.Components
 {
@@ -11,9 +13,10 @@ namespace Assets.Scripts.Components
 
         private float Gravity = 100f;
         private Vector3 moveDirection = Vector3.zero;
-
+        private IGameLogger logger;
         public void Start()
         {
+            logger = new ProxyLogger();
             transform.position = Position;
             transform.localScale = Body.Dimensions;
         }
@@ -35,6 +38,7 @@ namespace Assets.Scripts.Components
             {
                 ScoreboardSingleton.Scoreboard.AddDeath();
                 transform.position = Position;
+                logger.LogMessage("Pacman has died!");
             }
         }
 
@@ -42,14 +46,17 @@ namespace Assets.Scripts.Components
         {
             if (Input.GetKeyDown("1"))
             {
+                logger.LogMessage("Run Ability Activated!");
                 ability = new PacmanRunAbility();
             }
             else if (Input.GetKeyDown("2"))
             {
+                logger.LogMessage("Jump Ability Activated!");
                 ability = new PacmanJumpAbility();
             }
             else if (Input.GetKeyDown("3"))
             {
+                logger.LogMessage("Teleport Ability Activated!");
                 ability = new PacmanTeleportAbility();
             }
 
