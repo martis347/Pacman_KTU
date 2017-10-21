@@ -26,7 +26,7 @@ namespace Assets.Scripts.Components
                 }
                 else if (inputField.text == "code2")
                 {
-                    scoreboardAdapter.AddTenDotsCollected();
+                    scoreboardAdapter.AddFortyDotsCollected();
                 } 
                 else if (inputField.text == "code3")
                 {
