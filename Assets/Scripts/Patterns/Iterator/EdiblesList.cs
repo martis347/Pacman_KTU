@@ -1,16 +1,11 @@
 ﻿using Assets.Scripts.Patterns.Decorator;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
 
 namespace Assets.Scripts.Patterns.Iterator
 {
-    class ConcreteEdibles : Edibles
+    class EdiblesList : Edibles
     {
-        private List<EdibleDot> items = new List<EdibleDot>();
+        private readonly List<EdibleDot> items = new List<EdibleDot>();
 
         public Iterator CreateIterator()
         {

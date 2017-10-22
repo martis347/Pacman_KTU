@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Assets.Scripts.Patterns.Decorator;
+using Assets.Scripts.Patterns.Iterator;
+using System.Collections.Generic;
 using System.Linq;
-using Assets.Scripts.Patterns.Decorator;
-using Assets.Scripts.Patterns.Proxy;
 using UnityEngine;
 using Zenject;
 using Random = System.Random;
-using Assets.Scripts.Patterns.Iterator;
 
 namespace Assets.Scripts.Setup
 {
@@ -13,11 +12,9 @@ namespace Assets.Scripts.Setup
     {
         [Inject]
         private EdibleElementCreator dotCreator;
-        [Inject]
-        private IGameLogger logz;
 
         private Iterator iterator;
-
+        private EdiblesList ediblesList;
         public void Start()
         {
             EdibleElementCreator fruitCreator = new FruitCreatorDecorator(dotCreator);
@@ -34,26 +31,30 @@ namespace Assets.Scripts.Setup
                 }
             }
 
-            ConcreteEdibles concreteEdibles = new ConcreteEdibles();
+            ediblesList = new EdiblesList();
             var edibleGameObjects = GameObject.FindGameObjectsWithTag("Edible");
             var edibles = edibleGameObjects.Select(e => e.GetComponent<EdibleDot>()).ToList();
 
-            concreteEdibles.AddRange(edibles);
+            ediblesList.AddRange(edibles);
 
-            iterator = concreteEdibles.CreateIterator();
-            InvokeRepeating("IterateThroughDots", 3f, 5f);
+            iterator = ediblesList.CreateIterator();
+            InvokeRepeating("IterateThroughDots", 3f, 10f);
         }
 
         public void IterateThroughDots()
         {
-            if (iterator.Next())
+            while (iterator.Next())
             {
                 EdibleDot item = (EdibleDot)iterator.Current;
-                item.Points = 50;
-                var renderer = item.GetComponent<Renderer>();
-                renderer.material = Resources.Load<Material>("Black");
-
+                if (item != null)
+                {
+                    item.Points = 10;
+                    var renderer = item.GetComponent<Renderer>();
+                    renderer.material = Resources.Load<Material>("Black");
+                    return;
+                }
             }
+            iterator = ediblesList.CreateIterator();
         }
 
         private class WallLimits
