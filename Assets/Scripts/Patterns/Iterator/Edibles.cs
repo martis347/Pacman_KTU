@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Assets.Scripts.Patterns.Iterator
 {
-    interface Aggregate
+    interface Edibles
     {
         Iterator CreateIterator();
     }

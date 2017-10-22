@@ -34,23 +34,20 @@ namespace Assets.Scripts.Setup
                 }
             }
 
-            ConcreteAggregate aggr = new ConcreteAggregate();
+            ConcreteEdibles concreteEdibles = new ConcreteEdibles();
             var edibleGameObjects = GameObject.FindGameObjectsWithTag("Edible");
             var edibles = edibleGameObjects.Select(e => e.GetComponent<EdibleDot>()).ToList();
 
-            aggr.AddRange(edibles);
+            concreteEdibles.AddRange(edibles);
 
-            iterator = aggr.CreateIterator();
-            InvokeRepeating("MyMethod", 3f, 2f);
+            iterator = concreteEdibles.CreateIterator();
+            InvokeRepeating("IterateThroughDots", 3f, 5f);
         }
 
-        public void MyMethod()
+        public void IterateThroughDots()
         {
-            Debug.Log("Working");
-            var iteratorValue = iterator.Next();
             if (iterator.Next())
             {
-                Debug.Log("Testeris");
                 EdibleDot item = (EdibleDot)iterator.Current;
                 item.Points = 50;
                 var renderer = item.GetComponent<Renderer>();

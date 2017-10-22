@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Patterns.Iterator
 {
-    class ConcreteAggregate : Aggregate
+    class ConcreteEdibles : Edibles
     {
         private List<EdibleDot> items = new List<EdibleDot>();
 
@@ -26,11 +26,6 @@ namespace Assets.Scripts.Patterns.Iterator
         {
             get { return items.Count; }
         }
-
-        /*public void Add(object o)
-        {
-            items.Add(o);
-        }*/
 
         public void AddRange(List<EdibleDot> edibles)
         {

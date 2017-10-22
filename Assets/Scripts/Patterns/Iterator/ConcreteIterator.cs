@@ -7,27 +7,27 @@ namespace Assets.Scripts.Patterns.Iterator
 {
     class ConcreteIterator : Iterator
     {
-        private ConcreteAggregate aggregate;
+        private ConcreteEdibles concreteEdibles;
         int index;
 
-        public ConcreteIterator(ConcreteAggregate aggregate)
+        public ConcreteIterator(ConcreteEdibles concreteEdibles)
         {
-            this.aggregate = aggregate;
+            this.concreteEdibles = concreteEdibles;
             index = -1;
         }
 
         public bool Next()
         {
             index++;
-            return index < aggregate.Count;
+            return index < concreteEdibles.Count;
         }
 
         public object Current
         {
             get
             {
-                if (index < aggregate.Count)
-                    return aggregate[index];
+                if (index < concreteEdibles.Count)
+                    return concreteEdibles[index];
                 else
                     throw new InvalidOperationException();
             }
