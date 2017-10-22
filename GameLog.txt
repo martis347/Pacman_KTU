@@ -712,3 +712,7 @@
 [2017-10-22 12:29:41]	 Pacman collected 1 points!
 [2017-10-22 12:29:41]	 Pacman collected 1 points!
 [2017-10-22 12:30:46]	 Pacman collected 1 points!
+[2017-10-22 13:34:22]	 Pacman collected 1 points!
+[2017-10-22 13:34:22]	 Pacman collected 1 points!
+[2017-10-22 13:34:23]	 Pacman collected 1 points!
+[2017-10-22 13:34:24]	 Pacman collected 1 points!
