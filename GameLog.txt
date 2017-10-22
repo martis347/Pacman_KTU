@@ -688,3 +688,56 @@
 [2017-10-22 11:10:54]	 Pacman collected 50 points!
 [2017-10-22 11:10:54]	 Pacman collected 50 points!
 [2017-10-22 11:10:57]	 Pacman collected 50 points!
+[2017-10-22 13:08:12]	 Pacman collected 1 points!
+[2017-10-22 13:08:13]	 Pacman collected 1 points!
+[2017-10-22 13:08:51]	 Pacman collected 1 points!
+[2017-10-22 13:08:52]	 Pacman collected 1 points!
+[2017-10-22 13:08:53]	 Pacman collected 1 points!
+[2017-10-22 13:08:54]	 Pacman collected 5 points!
+[2017-10-22 13:09:04]	 Pacman collected 1 points!
+[2017-10-22 13:09:05]	 Pacman collected 1 points!
+[2017-10-22 13:09:06]	 Pacman collected 1 points!
+[2017-10-22 13:09:06]	 Pacman collected 1 points!
+[2017-10-22 13:09:07]	 Pacman collected 1 points!
+[2017-10-22 13:09:07]	 Pacman collected 5 points!
+[2017-10-22 13:09:08]	 Pacman collected 1 points!
+[2017-10-22 13:09:08]	 Pacman collected 1 points!
+[2017-10-22 13:09:08]	 Pacman collected 5 points!
+[2017-10-22 13:09:08]	 Pacman collected 1 points!
+[2017-10-22 13:09:43]	 Pacman collected 1 points!
+[2017-10-22 13:09:44]	 Pacman collected 1 points!
+[2017-10-22 13:09:44]	 Pacman collected 5 points!
+[2017-10-22 13:09:44]	 Pacman collected 5 points!
+[2017-10-22 13:09:45]	 Pacman collected 1 points!
+[2017-10-22 13:09:45]	 Pacman collected 1 points!
+[2017-10-22 13:09:45]	 Pacman collected 1 points!
+[2017-10-22 13:09:46]	 Pacman collected 5 points!
+[2017-10-22 13:09:46]	 Pacman collected 5 points!
+[2017-10-22 13:09:47]	 Pacman collected 5 points!
+[2017-10-22 13:09:47]	 Pacman collected 1 points!
+[2017-10-22 13:09:47]	 Pacman collected 1 points!
+[2017-10-22 13:09:48]	 Pacman collected 1 points!
+[2017-10-22 13:09:49]	 Pacman collected 1 points!
+[2017-10-22 13:09:49]	 Pacman collected 1 points!
+[2017-10-22 13:09:50]	 Pacman collected 1 points!
+[2017-10-22 13:09:51]	 Pacman collected 1 points!
+[2017-10-22 13:09:51]	 Pacman collected 1 points!
+[2017-10-22 13:09:54]	 Run Ability Activated!
+[2017-10-22 13:09:54]	 Jump Ability Activated!
+[2017-10-22 13:09:55]	 Teleport Ability Activated!
+[2017-10-22 13:09:55]	 Jump Ability Activated!
+[2017-10-22 13:09:55]	 Jump Ability Activated!
+[2017-10-22 13:09:56]	 Jump Ability Activated!
+[2017-10-22 13:09:57]	 Jump Ability Activated!
+[2017-10-22 13:09:57]	 Jump Ability Activated!
+[2017-10-22 13:09:57]	 Jump Ability Activated!
+[2017-10-22 13:09:57]	 Jump Ability Activated!
+[2017-10-22 13:09:57]	 Jump Ability Activated!
+[2017-10-22 13:09:57]	 Jump Ability Activated!
+[2017-10-22 13:13:43]	 Pacman collected 5 points!
+[2017-10-22 13:13:43]	 Pacman collected 1 points!
+[2017-10-22 13:13:43]	 Pacman collected 1 points!
+[2017-10-22 13:13:43]	 Pacman collected 1 points!
+[2017-10-22 13:13:43]	 Pacman collected 1 points!
+[2017-10-22 13:13:43]	 Pacman collected 1 points!
+[2017-10-22 13:13:44]	 Pacman collected 1 points!
