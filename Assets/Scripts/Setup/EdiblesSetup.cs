@@ -38,10 +38,11 @@ namespace Assets.Scripts.Setup
             ediblesList.AddRange(edibles);
 
             iterator = ediblesList.CreateIterator();
-            InvokeRepeating("IterateThroughDots", 3f, 10f);
+            InvokeRepeating("MakeNextDotPower", 3f, 10f);
+            InvokeRepeating("MakeNextDotDefault", 13f, 10f);
         }
 
-        public void IterateThroughDots()
+        public void MakeNextDotPower()
         {
             while (iterator.Next())
             {
@@ -55,6 +56,18 @@ namespace Assets.Scripts.Setup
                 }
             }
             iterator = ediblesList.CreateIterator();
+        }
+
+        public void MakeNextDotDefault()
+        {
+            EdibleDot item = (EdibleDot)iterator.Current;
+            if (item != null)
+            {
+                item.Points = 1;
+                var renderer = item.GetComponent<Renderer>();
+                renderer.material = Resources.Load<Material>("Wall/Materials/wall11_Ambient_Occlusion");
+                return;
+            }
         }
 
         private class WallLimits
