@@ -66,7 +66,7 @@ namespace Assets.Scripts.Setup
             {
                 item.Points = 1;
                 var renderer = item.GetComponent<Renderer>();
-                renderer.material = Resources.Load<Material>("wall11_Ambient_Occlusion");
+                renderer.material = Resources.Load<Material>("Wall/Materials/wall11_Ambient_Occlusion");
             }
         }
 
