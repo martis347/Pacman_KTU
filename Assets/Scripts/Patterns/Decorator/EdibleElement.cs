@@ -1,6 +1,4 @@
-﻿using Assets.Scripts.Patterns.Proxy;
-using UnityEngine;
-using Zenject;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Patterns.Decorator
 {

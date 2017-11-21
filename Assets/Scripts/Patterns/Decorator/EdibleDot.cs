@@ -2,7 +2,6 @@
 using Assets.Scripts.Patterns.Proxy;
 using Assets.Scripts.Patterns.Singleton;
 using UnityEngine;
-using Zenject;
 
 namespace Assets.Scripts.Patterns.Decorator
 {
@@ -12,11 +11,6 @@ namespace Assets.Scripts.Patterns.Decorator
         public void Start()
         {
             logger = new ProxyLogger();
-        }
-
-        public void Update()
-        {
-            
         }
 
         public void OnTriggerEnter(Collider collider)

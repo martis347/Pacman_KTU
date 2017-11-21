@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Assets.Scripts.Patterns.Bridge
+﻿namespace Assets.Scripts.Patterns.Bridge
 {
     public abstract class BridgePainter
     {

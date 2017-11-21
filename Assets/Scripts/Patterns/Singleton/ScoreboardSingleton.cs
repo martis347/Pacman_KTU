@@ -1,10 +1,14 @@
-﻿namespace Assets.Scripts.Patterns.Singleton
+﻿using Assets.Scripts.Patterns.State;
+
+namespace Assets.Scripts.Patterns.Singleton
 {
     public sealed class ScoreboardSingleton
     {
         private static ScoreboardSingleton instance;
         private static readonly object Padlock = new object();
         private readonly Scoreboard scoreboard;
+
+        Context context = new Context();
 
         private ScoreboardSingleton()
         {
@@ -43,6 +47,15 @@
             lock (Padlock)
             {
                 scoreboard.PointsScored += points;
+                if(scoreboard.PointsScored > 30 && scoreboard.PointsScored < 50)
+                {
+                    FirstStateSpeed firstStateSpeed = new FirstStateSpeed();
+                    firstStateSpeed.decreasePacmanSpeed();
+                } else if (scoreboard.PointsScored > 50)
+                {
+                    SecondStateSpeed secondStateSpeed = new SecondStateSpeed();
+                    secondStateSpeed.decreasePacmanSpeed();
+                }
             }
         }
     }
