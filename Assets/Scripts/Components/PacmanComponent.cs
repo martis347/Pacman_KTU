@@ -9,7 +9,7 @@ namespace Assets.Scripts.Components
 {
     public class PacmanComponent: CharacterComponent
     {
-        private ISpecialPacmanAbility ability;
+        private ISpecialPacmanAbility ability = new PacmanNullAbility();
 
         private float Gravity = 100f;
         private Vector3 moveDirection = Vector3.zero;
@@ -60,7 +60,7 @@ namespace Assets.Scripts.Components
                 ability = new PacmanTeleportAbility();
             }
 
-            if (Input.GetKeyDown("space") && ability != null)
+            if (Input.GetKeyDown("space"))
             {
                 ability.DoSpecialAbility(controller, gameObject);
             }
