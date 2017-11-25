@@ -5,6 +5,10 @@ using Assets.Scripts.Patterns.Singleton;
 using Assets.Scripts.Patterns.Strategy;
 using UnityEngine;
 using Zenject;
+using Assets.Scripts.Patterns.Visitor;
+using System.Linq;
+using Assets.Scripts.Patterns.Decorator;
+using System.Collections.Generic;
 
 namespace Assets.Scripts.Components
 {
@@ -17,11 +21,23 @@ namespace Assets.Scripts.Components
         private IGameLogger logger;
         private CharacterController controller;
         private Direction direction;
+        private PacmanVisitor pacmanVisitor;
+
+        private List<EdibleDot> edibles;
+        private List<GhostComponent> ghosts;
+
         public void Start()
         {
             logger = new ProxyLogger();
             transform.position = Position;
             transform.localScale = Body.Dimensions;
+            this.pacmanVisitor = new PacmanVisitor();
+
+            var edibleGameObjects = GameObject.FindGameObjectsWithTag("Edible");
+            this.edibles = edibleGameObjects.Select(e => e.GetComponent<EdibleDot>()).ToList();
+
+            var ghostGameObjects = GameObject.FindGameObjectsWithTag("Ghost");
+            this.ghosts = ghostGameObjects.Select(e => e.GetComponent<GhostComponent>()).ToList();
         }
 
         void Update()
@@ -49,15 +65,30 @@ namespace Assets.Scripts.Components
                 y = Input.GetAxis("Vertical");
             }
 
-            controller = GetComponent<CharacterController>();
-            if (controller.isGrounded)
+            if (x != 0 || y != 0)
             {
-                moveDirection = new Vector3(x, 0, y);
-                moveDirection = transform.TransformDirection(moveDirection);
-                moveDirection *= Legs.Speed;
+
+                controller = GetComponent<CharacterController>();
+                if (controller.isGrounded)
+                {
+                    moveDirection = new Vector3(x, 0, y);
+                    moveDirection = transform.TransformDirection(moveDirection);
+                    moveDirection *= Legs.Speed;
+                }
+                moveDirection.y -= Gravity * Time.deltaTime;
+                controller.Move(moveDirection * Time.deltaTime);
+
+                foreach(EdibleDot edible in edibles)
+                {
+                    edible.Accept(pacmanVisitor);
+                }
+
+                foreach (GhostComponent ghost in ghosts)
+                {
+                    ghost.Accept(pacmanVisitor);
+                }
+
             }
-            moveDirection.y -= Gravity * Time.deltaTime;
-            controller.Move(moveDirection * Time.deltaTime);
         }
 
         private void HandleSpecialAbility(CharacterController controller)

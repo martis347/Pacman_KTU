@@ -25,6 +25,7 @@ namespace Assets.Scripts.Patterns.Builder
             collider.radius = 0.6f;
 
             gameObject.name = "Ghost";
+            gameObject.tag = "Ghost";
             return gameObject;
         }
 

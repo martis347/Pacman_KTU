@@ -2,10 +2,11 @@
 using Assets.Scripts.Patterns.Proxy;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using Assets.Scripts.Patterns.Visitor;
 
 namespace Assets.Scripts.Components
 {
-    public class GhostComponent: CharacterComponent
+    public class GhostComponent: CharacterComponent, IVisitable
     {
         private float Gravity = 100f;
         private Vector3 moveDirection;
@@ -35,6 +36,11 @@ namespace Assets.Scripts.Components
             }
             moveDirection.y -= Gravity * Time.deltaTime;
             controller.Move(moveDirection * Time.deltaTime);
+        }
+
+        public void OnPacmanStep()
+        {
+            this.ChangeDirection();
         }
 
         public void OnTriggerEnter(Collider collider)
@@ -75,6 +81,11 @@ namespace Assets.Scripts.Components
                 xAxis = 1f;
                 zAxis = 0;
             }
+        }
+
+        public void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
         }
     }
 }

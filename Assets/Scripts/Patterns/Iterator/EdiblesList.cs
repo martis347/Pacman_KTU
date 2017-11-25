@@ -29,5 +29,10 @@ namespace Assets.Scripts.Patterns.Iterator
                 items.Add(edible);
             }
         }
+
+        public List<EdibleDot> GetList()
+        {
+            return items;
+        }
     }
 }
