@@ -31,7 +31,7 @@ namespace Assets.Scripts.Components
             logger = new ProxyLogger();
             transform.position = Position;
             transform.localScale = Body.Dimensions;
-            this.pacmanVisitor = new PacmanVisitor();
+            this.pacmanVisitor = new PacmanVisitor(this);
 
             var edibleGameObjects = GameObject.FindGameObjectsWithTag("Edible");
             this.edibles = edibleGameObjects.Select(e => e.GetComponent<EdibleDot>()).ToList();

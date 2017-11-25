@@ -3,6 +3,7 @@ using Assets.Scripts.Patterns.Proxy;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using Assets.Scripts.Patterns.Visitor;
+using Assets.Scripts.Patterns.TemplateMethod;
 
 namespace Assets.Scripts.Components
 {
@@ -38,9 +39,10 @@ namespace Assets.Scripts.Components
             controller.Move(moveDirection * Time.deltaTime);
         }
 
-        public void OnPacmanStep()
+        public void OnPacmanStep(PacmanComponent pacman)
         {
-            this.ChangeDirection();
+            GhostChaseMode ghostMode = new GhostChaseMode(pacman.Position, moveDirection, this.GetComponent<Rigidbody>());
+            ghostMode.Move();
         }
 
         public void OnTriggerEnter(Collider collider)

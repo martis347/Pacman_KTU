@@ -9,6 +9,13 @@ namespace Assets.Scripts.Patterns.Visitor
 {
     public class PacmanVisitor : IVisitor
     {
+        PacmanComponent pacman;
+
+        public PacmanVisitor(PacmanComponent pacman)
+        {
+            this.pacman = pacman;
+        }
+
         public void Visit(EdibleDot edibleDot)
         {
             edibleDot.OnPacmanMove();
@@ -16,7 +23,7 @@ namespace Assets.Scripts.Patterns.Visitor
 
         public void Visit(GhostComponent ghost)
         {
-            ghost.OnPacmanStep();
+            ghost.OnPacmanStep(pacman);
         }
     }
 }
