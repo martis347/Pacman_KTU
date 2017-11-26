@@ -2,6 +2,7 @@
 using Assets.Scripts.Patterns.Iterator;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.Helpers;
 using UnityEngine;
 using Zenject;
 using Random = System.Random;
@@ -38,10 +39,11 @@ namespace Assets.Scripts.Setup
             ediblesList.AddRange(edibles);
 
             iterator = ediblesList.CreateIterator();
-            InvokeRepeating("IterateThroughDots", 3f, 10f);
+            InvokeRepeating("MakeNextDotPower", 3f, 10f);
+            InvokeRepeating("MakeNextDotDefault", 13f, 10f);
         }
 
-        public void IterateThroughDots()
+        public void MakeNextDotPower()
         {
             while (iterator.Next())
             {
@@ -57,12 +59,15 @@ namespace Assets.Scripts.Setup
             iterator = ediblesList.CreateIterator();
         }
 
-        private class WallLimits
+        public void MakeNextDotDefault()
         {
-            public float FromX;
-            public float ToX;
-            public float FromZ;
-            public float ToZ;
+            EdibleDot item = (EdibleDot)iterator.Current;
+            if (item != null)
+            {
+                item.Points = 1;
+                var renderer = item.GetComponent<Renderer>();
+                renderer.material = Resources.Load<Material>("Wall/Materials/wall11_Ambient_Occlusion");
+            }
         }
 
         private static List<Vector3> GenerateCoordinatesForEdibles()

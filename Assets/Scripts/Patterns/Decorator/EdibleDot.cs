@@ -2,21 +2,17 @@
 using Assets.Scripts.Patterns.Proxy;
 using Assets.Scripts.Patterns.Singleton;
 using UnityEngine;
-using Zenject;
+using Assets.Scripts.Patterns.Visitor;
 
 namespace Assets.Scripts.Patterns.Decorator
 {
-    public class EdibleDot: EdibleElement
+    public class EdibleDot:  EdibleElement, IVisitable
     {
-        private IGameLogger logger;
+        public IGameLogger logger;
+
         public void Start()
         {
             logger = new ProxyLogger();
-        }
-
-        public void Update()
-        {
-            
         }
 
         public void OnTriggerEnter(Collider collider)
@@ -28,6 +24,16 @@ namespace Assets.Scripts.Patterns.Decorator
 
                 Destroy(gameObject);
             }
+        }
+
+        public void OnPacmanMove()
+        {
+            //TODO add smth
+        }
+
+        public void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
         }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using Assets.Scripts.Components;
 using Assets.Scripts.Patterns.Factory;
+using Assets.Scripts.Patterns.Interpreter;
 using UnityEngine;
 using Zenject;
+using Context = Zenject.Context;
 
 namespace Assets.Scripts.Setup
 {
@@ -11,6 +13,7 @@ namespace Assets.Scripts.Setup
         [Inject]
         private CharacterBuilderFactory buildersFactory;
 
+        private Patterns.Interpreter.Context context;
         public void Start()
         {
             var ghosts = new List<GameObject>();
@@ -28,6 +31,21 @@ namespace Assets.Scripts.Setup
                 .Find("PacmanCamera")
                 .GetComponent<FollowingCamera>()
                 .Player = pacman.GetComponent<PacmanComponent>();
+
+            context = new Patterns.Interpreter.Context(pacman.GetComponent<PacmanComponent>(), "w5d2w9d3s1a4");
+
+            //InvokeRepeating("DoAction", 5f, 0.3f);
+        }
+
+        public void DoAction()
+        {
+            if (context.NotEmpty())
+            {
+                var directionExpression = new DirectionExpression();
+                directionExpression.Interpret(context);
+                var stepsExpression = new StepsExpression();
+                stepsExpression.Interpret(context);
+            }
         }
     }
 }

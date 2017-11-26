@@ -1,6 +1,4 @@
-﻿using Assets.Scripts.Patterns.Adapter;
-using Assets.Scripts.Patterns.Singleton;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Setup

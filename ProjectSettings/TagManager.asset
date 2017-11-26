@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Edible
+  - Ghost
   layers:
   - Default
   - TransparentFX
