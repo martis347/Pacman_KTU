@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +9,14 @@ namespace Assets.Scripts.Patterns.Memento
 {
     class Memento
     {
-        private GameObject pacmanState;
+        private PacmanComponent pacmanState;
 
-        public Memento(GameObject pacmanState)
+        public Memento(PacmanComponent pacmanState)
         {
             this.pacmanState = pacmanState;
         }
 
-        public GameObject getPacmanState()
+        public PacmanComponent getPacmanState()
         {
             return pacmanState;
         }
